@@ -1,2 +1,2 @@
 # API-RickAndMorty
-Project03-M3-RickAndMaorty
+Project03-M3-RickAndMorty
