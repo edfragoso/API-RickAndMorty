@@ -1,0 +1,28 @@
+{
+  "name": "api-rickandmorty",
+  "version": "1.0.0",
+  "description": "Project03-M3_C16 API-RickAndMorty",
+  "main": "index.js",
+  "scripts": {
+    "Start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edfragoso/API-RickAndMorty.git"
+  },
+  "author": "Ednilson Lucas Fragoso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edfragoso/API-RickAndMorty/issues"
+  },
+  "homepage": "https://github.com/edfragoso/API-RickAndMorty#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
