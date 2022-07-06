@@ -7,7 +7,7 @@ const findAllCharacters = async (req, res) => {
     if (allCharacters.length == 0) {
         return res.status(206).send({ message: "Não existe nenhum personagem cadastrado" });
     }
-    res.send('allCharacters');
+    res.send(allCharacters);
 };
 
 
