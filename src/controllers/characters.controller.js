@@ -10,8 +10,22 @@ const findAllCharacters = async (req, res) => {
     res.send(allCharacters);
 };
 
+const findByIdCharacters = async (req, res) => {
+    const id = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).send({ message: "ID inválido" })
+    }
+
+    const character = await charactersService.findByIdCharacters(id);
+    if (!character) {
+        return res.status(204);
+    }
+    res.send(character);
+}; 
+
 
 
 module.exports = {
     findAllCharacters,
+    findByIdCharacters
 }
