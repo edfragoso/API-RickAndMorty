@@ -68,12 +68,14 @@ const uptadeCharacter = async (req, res) => {
   );
 
   res
-    .status(200)
+    .status(201)
     .send({
       message: 'Atualiazação efetuada com sucesso!',
       data: updateCharecter,
     });
 };
+
+
 
 module.exports = {
   findAllCharacters,
