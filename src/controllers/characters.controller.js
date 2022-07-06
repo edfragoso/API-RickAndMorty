@@ -31,14 +31,53 @@ const createCharacter = async (req, res) => {
   if (!characterBody || !characterBody.name || !characterBody.image) {
     return res.status(400).send({
       message:
-        'Você precisa preencher todos os campos para adionar novo personagem!'});
+        'Você precisa preencher todos os campos para adionar novo personagem!',
+    });
   }
-    const newCharacter = await charactersService.createCharacter(characterBody);
-    res.status(201).send({messsage: "Personagem adicionado com sucesso!", data: newCharacter});
+  const newCharacter = await charactersService.createCharacter(characterBody);
+  res.status(201).send({
+    messsage: 'Personagem adicionado com sucesso!',
+    data: newCharacter,
+  });
+};
+
+const uptadeCharacter = async (req, res) => {
+  const id = req.params.id;
+  const editCharacter = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({ message: 'ID inválido' });
+  }
+
+  const character = await charactersService.findByIdCharacters(id);
+
+  if (!editCharacter) {
+    return res.status(204);
+  }
+
+  if (!editCharacter || !editCharacter.name || !editCharacter.image) {
+    return res.status(400).send({
+      message:
+        'Você precisa preencher todos os campos para adionar novo personagem!',
+    });
+  }
+
+  const updateCharecter = await charactersService.updateCharecter(
+    id,
+    editCharacter,
+  );
+
+  res
+    .status(200)
+    .send({
+      message: 'Atualiazação efetuada com sucesso!',
+      data: updateCharecter,
+    });
 };
 
 module.exports = {
   findAllCharacters,
   findByIdCharacters,
   createCharacter,
+  uptadeCharacter,
 };
