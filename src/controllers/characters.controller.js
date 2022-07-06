@@ -34,7 +34,7 @@ const createCharacter = async (req, res) => {
         'Você precisa preencher todos os campos para adionar novo personagem!'});
   }
     const newCharacter = await charactersService.createCharacter(characterBody);
-    res.status(201).send(newCharacter);
+    res.status(201).send({messsage: "Personagem adicionado com sucesso!", data: newCharacter});
 };
 
 module.exports = {
