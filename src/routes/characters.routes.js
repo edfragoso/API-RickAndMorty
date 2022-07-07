@@ -5,6 +5,6 @@ route.get('/characters', controllerCharacter.findAllCharacters);
 route.get('/characters/find/:id', controllerCharacter.findByIdCharacters);
 route.post('/character/create', controllerCharacter.createCharacter);
 route.put('/character/update/:id', controllerCharacter.updateCharacter);
-
+route.delete('/character/delete/:id', controllerCharacter.deleteCharacter);
 
 module.exports = route;
