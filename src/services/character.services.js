@@ -18,6 +18,10 @@ const updateCharecter = async (idParam, editCharacter) => {
   });
 };
 
+const deleteCharacter = async (idParam) => {
+    return await Character.findByIdAndDelete(idParam);
+}
+
 module.exports = {
   findAllCharacters,
   findByIdCharacters,
