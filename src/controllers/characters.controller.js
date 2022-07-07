@@ -75,11 +75,28 @@ const updateCharacter = async (req, res) => {
     });
 };
 
+const deleteCharacter = async (req, res) => {
+  const id = req.params.id;
 
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({ message: 'ID inválido' });
+  };
+  
+  const character = await charactersService.findByIdCharacters(id);
+
+  if (!character) {
+    return res.status(204);
+  };
+
+  await charactersService.deleteCharacter(id);
+  res.status(200).send({message: "Personagem deletado com sucesso!", data: character})
+
+}
 
 module.exports = {
   findAllCharacters,
   findByIdCharacters,
   createCharacter,
   updateCharacter,
+  deleteCharacter,
 };
