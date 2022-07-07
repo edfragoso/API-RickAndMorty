@@ -4,7 +4,7 @@
   "description": "Project03-M3_C16 API-RickAndMorty",
   "main": "index.js",
   "scripts": {
-    "Start": "node index",
+    "start": "node index",
     "dev": "nodemon index"
   },
   "repository": {
