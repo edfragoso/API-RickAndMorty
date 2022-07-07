@@ -14,9 +14,6 @@ const findAllCharacters = async (req, res) => {
 
 const findByIdCharacters = async (req, res) => {
   const id = req.params.id;
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).send({ message: 'ID inválido' });
-  }
 
   const character = await charactersService.findByIdCharacters(id);
   if (!character) {
@@ -28,12 +25,6 @@ const findByIdCharacters = async (req, res) => {
 const createCharacter = async (req, res) => {
   const characterBody = req.body;
 
-  if (!characterBody || !characterBody.name || !characterBody.image) {
-    return res.status(400).send({
-      message:
-        'Você precisa preencher todos os campos para adionar novo personagem!',
-    });
-  }
   const newCharacter = await charactersService.createCharacter(characterBody);
   res.status(201).send({
     messsage: 'Personagem adicionado com sucesso!',
@@ -45,21 +36,10 @@ const updateCharacter = async (req, res) => {
   const id = req.params.id;
   const editCharacter = req.body;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).send({ message: 'ID inválido' });
-  }
-
   const character = await charactersService.findByIdCharacters(id);
 
   if (!editCharacter) {
-    return res.status(204);
-  }
-
-  if (!editCharacter || !editCharacter.name || !editCharacter.image) {
-    return res.status(400).send({
-      message:
-        'Você precisa preencher todos os campos para adionar novo personagem!',
-    });
+    return res.status(204).send({message: "Personagem não encontrado!"});
   }
 
   const updateCharecter = await charactersService.updateCharecter(
@@ -68,7 +48,7 @@ const updateCharacter = async (req, res) => {
   );
 
   res
-    .status(201)
+    .status(200)
     .send({
       message: 'Atualiazação efetuada com sucesso!',
       data: updateCharecter,
@@ -77,10 +57,6 @@ const updateCharacter = async (req, res) => {
 
 const deleteCharacter = async (req, res) => {
   const id = req.params.id;
-
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).send({ message: 'ID inválido' });
-  };
   
   const character = await charactersService.findByIdCharacters(id);
 
