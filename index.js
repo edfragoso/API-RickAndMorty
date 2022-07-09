@@ -14,7 +14,7 @@ app.use(cors());
 
 
 
-app.use("/", routes);
+app.use("/characters", routes);
 
 app.listen(port,() => {
     console.log(`Servidor Rodando em http://localhost:${port}`)

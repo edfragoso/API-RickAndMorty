@@ -1,0 +1,201 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Rick And Morty",
+    "description": "API para CRUD dos Personagens da série Rick And Morty",
+    "termsOfService": "",
+    "contact": {
+      "email": "ednilson.fragoso@hotmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api-rickandmort.herokuapp.com/",
+      "description": "API de produção"
+    },
+    {
+      "url": "http://localhost:3000/",
+      "description": "API de teste"
+    }
+    
+  ],
+  "paths": {
+    "/characters": {
+      "get": {
+        "summary": "List get ALL characters",
+        "description": "Returns a list of all characters in DataBase MongoDb-atlas",
+        "tags": ["Characters"],
+        "responses": {
+          "200": {
+            "description": "Ok!"            
+          },
+          "204": {
+            "description": "There is not registered character"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/characters/find/{id}": {
+      "get": {
+        "summary": "Get character by ID",
+        "description": "Returns object with corresponding ID from DB",
+        "operationId": "getCharacterById",
+        "tags": ["Characters"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the task to get, 24 character hexadecimal",
+            "schema": {
+              "type": "string",
+              "example": "62c5ee4d0bb2fb2e04daa760"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Get character by ID"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/characters/create": {
+      "post": {
+        "summary": "Create New character",
+        "description": "Creates new character in DB from body",
+        "operationId": "CreateCharacter",
+        "tags": ["Characters"],
+        "requestBody": {
+          "description": "New character body",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/character"
+              },
+              "example": {
+                "name": "name",
+                "image": "URL image"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/characters/update/{id}": {
+      "put": {
+        "summary": "Update character by ID",
+        "description": "Updates character with corresponding ID in DB from body",
+        "operationId": "UpdateCharacter",
+        "tags": ["Characters"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the task to get, 24 character hexadecimal",
+            "schema": {
+              "type": "string",
+              "example": "62c5ee4d0bb2fb2e04daa760"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "character to update body",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/character"
+              },
+              "example": {
+                "name": "name",
+                "image": "URL image"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated character",
+            "$ref": "#/components/schemas/character"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/characters/delete/{id}": {
+      "delete": {
+        "summary": "Delete character by ID",
+        "description": "Deletes character with corresponding ID from DB",
+        "operationId": "deleteCharacter",
+        "tags": ["Characters"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the task to get, 24 character hexadecimal",
+            "schema": {
+              "type": "string",
+              "example": "62c5ee4d0bb2fb2e04daa760"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleted"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "character": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
