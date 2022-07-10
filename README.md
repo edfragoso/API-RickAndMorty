@@ -11,7 +11,7 @@
 :----------:| :---------------------------------: | :-------------------:
 Gerencia dados e lógica de negócios | Controla o layout e a exibição | Encaminha comandos para o modelo e exibe as peças. 
         
-**[Link para testes Heroku](https://api-rickandmort.herokuapp.com/characters/api-docs/)**
+**[Link Heroku Swagger-ui](https://api-rickandmort.herokuapp.com/characters/api-docs/)**
 
 <h2>🖥Tecnologias Utilizadas</h2>
 
