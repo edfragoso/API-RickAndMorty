@@ -79,13 +79,13 @@ Gerencia dados e lógica de negócios | Controla o layout e a exibição | Encam
 [linkDin](https://www.linkedin.com/in/ednilsonfragoso/)
 
 <h3>🙏Agradecimentos</h3>
-👨‍🏫Professores:
+👨‍🏫 Professores:
 
 * [Marcus Silva](https://www.linkedin.com/in/marcusvinysilva)
-* Renato Nakamura
-* Thiago Lima
-* Maria Eduarda(DUDA)
+* [Renato Nakamura](https://www.linkedin.com/in/renato-nakamura/)
+* [Thiago Lima (ThiCode)]( https://www.linkedin.com/in/thicode/)
+* [Maria Eduarda(DUDA)](https://www.linkedin.com/in/maria-eduarda-de-ara%C3%BAjo-cardoso)
 * [Leonardo Fleck]( https://www.linkedin.com/in/leonardo-kf/)
-* Bruno Sallum 
+* [Bruno Sallum](https://www.linkedin.com/in/bruno-sallum/) 
 
 
